@@ -1,0 +1,18 @@
+# Ignore virtual environments
+.venv/
+venv/
+env/
+
+# Ignore VS Code workspace files
+.vscode/
+
+# Ignore generated .txt files
+# *.txt
+
+# Ignore WSL specific files (if any)
+.wslconfig
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
