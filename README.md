@@ -13,6 +13,7 @@ A simple Python script to extract all URLs (both relative and absolute) from a g
 ## Requirements
 
 - Python 3.6 or higher
+- yt-dlp (command-line tool for downloading videos/playlists)
 - Dependencies listed in `requirements.txt`
 
 ## Installation
@@ -31,7 +32,7 @@ A simple Python script to extract all URLs (both relative and absolute) from a g
    ```
    python extract.py
    ```
-4. The extracted URLs will be written to the specified file (e.g., `url11.txt`).
+4. The script will extract URLs, save them to the file, and automatically start downloading using yt-dlp.
 
 ## Example Output
 

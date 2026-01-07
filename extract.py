@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import subprocess
 
 def extract_all_urls(url):
     try:
@@ -38,12 +39,23 @@ def write_urls_to_file(urls, file_name):
     except IOError as e:
         print(f"Error writing to file: {e}")
 
+def download_with_ytdlp(file_name):
+    try:
+        print(f"Starting download with yt-dlp from {file_name}...")
+        subprocess.run(['yt-dlp', '-a', file_name], check=True)
+        print("Download completed.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error during download: {e}")
+    except FileNotFoundError:
+        print("yt-dlp is not installed or not in PATH.")
+
 if __name__ == "__main__":
-    page_url = 'https://example.com'  # Replace with the actual URL
+    page_url = 'https://bunkr.cr/a/3Ow4k9j6?page=2'  # Replace with the actual URL
+    output_file = 'sinful.txt'  # Change this to your desired output file name
     all_urls = extract_all_urls(page_url)
     
     if all_urls:
-        file_name = 'urlsample.txt'
-        write_urls_to_file(all_urls, file_name)
+        write_urls_to_file(all_urls, output_file)
+        download_with_ytdlp(output_file)
     else:
         print("No URLs found.")
