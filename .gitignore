@@ -7,7 +7,7 @@ env/
 .vscode/
 
 # Ignore generated .txt files
-# *.txt
+*.txt
 
 # Ignore WSL specific files (if any)
 .wslconfig
